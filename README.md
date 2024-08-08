@@ -34,3 +34,13 @@ npm run webpack
 The output folder webpack/dist should now contain a file main.js which you can place in your drupal installation under [webroot]/libraries/mirador/dist.
 
 You can then go to /admin/config/media/mirador and set it to use the local version after clearing your site's cache.
+
+## Digital UTSC Additions
+
+This fork has an additional mirador plugin added namely: `mirador-annotation`
+
+To install new plugins, follow the steps above and install plugins that are compatible with the current version of mirador.
+
+Using node to install the plugins then modify `src/index.js` to actually add the plugin to mirador (i.e add it to `window.miradorPlugins` object in the code)
+
+Lastly, the adapter setting has to be controlled by a patch to the `islandora_mirador` module in Drupal. The Patch is [here](https://github.com/digitalutsc/hocr_annotation_converter/blob/master/Patch/annotation_mirador.patch)
